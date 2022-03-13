@@ -13,7 +13,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
 
-cat cat <<EOF > ~/.zshrc
+cat <<EOF > ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"
 
 #plugins
