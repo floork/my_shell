@@ -43,3 +43,5 @@ cp ~/zsh/aliasrc ~/.zsh
 #make default shell
  chsh -s /bin/zsh
  chsh -s /bin/zsh $USER
+
+rm -r ~/zsh
