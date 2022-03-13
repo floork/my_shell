@@ -10,7 +10,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh//plu
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 #starship theme
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 
 
 cat cat <<EOF > ~/.zshrc
@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.zsh/aliasrc" ] && source "$HOME/.zsh/aliasrc"
 
 #theme
-eval "$(starship init zsh)"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 EOF
 
 echo "exec zsh" | sudo tee -a ~/.bashrc
