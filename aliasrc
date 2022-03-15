@@ -24,10 +24,6 @@ ex ()
   fi
 }
 
-export EDITOR=vim
-
-alias pacman-update='sudo pacman-mirrors --geoip'
-
 alias ls='ls'
 alias ll='ls -l'
 # ls, the common ones I use a lot shortened for rapid fire usage
@@ -40,9 +36,6 @@ alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
-
-alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias aliasrc='${=EDITOR} ~/.zsh/aliasrc' # Quick access to this file
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -78,8 +71,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias vim='vim'
 alias vi='vim'
-alias gds-start='sudo systemctl start openvpn-client@gds'
-alias gds-stop='sudo systemctl stop openvpn-client@gds'
 gitpush() {
     git add .
     git commit -m "$*"
@@ -96,10 +87,28 @@ alias gu=gitupdate
 alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
-#alias
+export EDITOR=vim
+
+# ZSH alias
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+alias aliasrc='${=EDITOR} ~/.zsh/aliasrc' # Quick access to this file
+alias reload='source ~/.zshrc' # Reload the zshrc file
+
+# Regular alias
 alias cls=clear
+alias ende='shutdown now'
+
+# Arch alias
 alias packy='yay -S'
-alias apacky='sudo apt install'
-alias reload='source ~/.zshrc'
 alias packdate='yay -Syu'
-alias apckdate='sudo apt-get update vs apt-get update'
+alias rpacky='yay -R'
+alias pacman-update='sudo pacman-mirrors --geoip'
+
+# Apt alias
+alias apacky='sudo apt install'
+alias apckdate='sudo apt-get update && apt-get update'
+alias rapacky='sudo apt remove'
+
+# Flatpak alias
+alias fpacky='flatpak install flathub'
+alias rfpacky='flatpak remove'
