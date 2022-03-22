@@ -72,6 +72,7 @@ del(){
             reboot -h now
             ;;
             0)
+            exit
             ;;
             *)
             echo "Please only use 1 or 0"
