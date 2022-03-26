@@ -8,13 +8,13 @@ system(){
         0) Debian/Ubuntu
         Choose an option:  " 
         read -r sys
-        case sys in
+        case ${sys} in
         1)
-        sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions git curl
+        sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions git curl exa
         ;;
         0)
-        apt-get update && sudo apt-get upgrade
-        apt-get -y --yes install zsh
+        sudo apt-get update && sudo apt-get upgrade
+        sudo apt-get -y --yes install zsh exa
         ;;
         *)
         echo "Please use 1 or 0"

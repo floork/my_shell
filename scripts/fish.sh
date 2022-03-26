@@ -7,14 +7,14 @@ system(){
             0) Debian/Ubuntu
             Choose an option:  " 
             read -r sys
-            case sys in
+            case ${sys} in
             1)
-            sudo pacman -S --noconfirm --needed fish git curl
+            sudo pacman -S --noconfirm --needed fish git curl exa
             ;;
             0)
-            apt-add-repository ppa:fish-shell/release-3 
-            apt-get update && sudo apt-get upgrade
-            apt-get -y --yes install fish curl
+            sudo apt-add-repository ppa:fish-shell/release-3
+            sudo apt-get update && sudo apt-get upgrade
+            sudo apt-get -y --yes install fish curl exa
             ;;
             *)
             echo "Please use 1 or 0"
