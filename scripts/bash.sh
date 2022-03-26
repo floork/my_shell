@@ -9,7 +9,8 @@ system(){
             read -r sys
             case ${sys} in
             1)
-            sudo pacman -S --noconfirm --needed exa
+            sudo pacman -S --noconfirm --needed starship exa
+            yay -S --noconfirm --needed nerd-fonts-complete-starship
             ;;
             0)
             sudo apt-get update && sudo apt-get upgrade
@@ -28,6 +29,9 @@ install(){
 
             mkdir ~/.alias
             cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias
+
+            chsh -s /usr/bin/fish
+            chsh -s /usr/bin/fish $USER
 }
 
 system
