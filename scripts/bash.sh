@@ -4,6 +4,7 @@ system(){
             echo "What Distro do you use"
             echo -ne "
             1) Arch
+            2) Fedora
             0) Debian/Ubuntu
             Choose an option:  "
             read -r sys
@@ -11,6 +12,9 @@ system(){
             1)
             sudo pacman -S --noconfirm --needed starship exa
             yay -S --noconfirm --needed nerd-fonts-complete-starship
+            ;;
+            2)
+            sudo dnf -y install starship exa
             ;;
             0)
             sudo apt-get update && sudo apt-get upgrade
