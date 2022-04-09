@@ -39,9 +39,9 @@ prompt(){
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
             ;;
             0)
-            bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee 
             bash ${SCRIPT_DIR}/scripts/zsh.sh  |& tee 
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee 
+            bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee 
             ;;
             *)
             echo "Please only use the right numbers"

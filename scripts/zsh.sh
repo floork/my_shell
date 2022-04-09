@@ -31,14 +31,12 @@ install{
         git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
         #configs        
-        cp ${SCRIPT_DIR}/configs/.zshrc ~/.zshrc
-        cp ${SCRIPT_DIR}/configs/starship.toml ~/.config        
+        cp ${SCRIPT_DIR}/configs/zshrc ~/.zshrc
+        cp ${SCRIPT_DIR}/configs/starship.toml ~/.config/
         mkdir ~/.alias
-        cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias       
+        cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias/
         #make default shell
         chsh -s /bin/zsh
-        chsh -s /bin/zsh $USER
-
 }
 
 system

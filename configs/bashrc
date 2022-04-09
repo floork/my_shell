@@ -1,0 +1,9 @@
+#starship
+eval "$(starship init bash)"
+
+#aliasrc
+if [ -f ~/.alias/aliasrc ]; then
+. ~/.alias/aliasrc
+fi
+
+alias reload='source ~/.bashrc'
