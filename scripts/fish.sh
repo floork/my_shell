@@ -4,6 +4,7 @@ system(){
     echo "What Distro do you use"
             echo -ne "
             1) Arch
+            2) Fedora
             0) Debian/Ubuntu
             Choose an option:  " 
             read -r sys
@@ -11,6 +12,8 @@ system(){
             1)
             sudo pacman -S --noconfirm --needed fish git curl exa
             ;;
+            2)
+            sudo dnf -y install fish curl exa
             0)
             sudo apt-add-repository ppa:fish-shell/release-3
             sudo apt-get update && sudo apt-get upgrade
