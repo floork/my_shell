@@ -5,12 +5,16 @@ system(){
         "
         echo -ne "
         1) Arch
+        2) Fedora
         0) Debian/Ubuntu
         Choose an option:  " 
         read -r sys
         case ${sys} in
         1)
         sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions git curl exa
+        ;;
+        2)
+        sudo dnf -y install zsh curl exa curl zsh-autosuggestions zsh-syntax-highlighting
         ;;
         0)
         sudo apt-get update && sudo apt-get upgrade
