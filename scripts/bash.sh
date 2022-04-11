@@ -10,14 +10,10 @@ system(){
             read -r sys
             case ${sys} in
             1)
-            sudo pacman -S --noconfirm --needed starship exa
-            yay -S --noconfirm --needed nerd-fonts-complete-starship
+            sudo pacman -S --noconfirm --needed starship exa curl
             ;;
             2)
-            sudo dnf -y install starship exa
-            git clone https://github.com/ryanoasis/nerd-fonts
-            cd nerd-fonts
-            sudo ./install.sh
+            sudo dnf -y install starship exa curl
             ;;
             0)
             sudo apt-get update && sudo apt-get upgrade

@@ -10,7 +10,7 @@ system(){
             read -r sys
             case ${sys} in
             1)
-            sudo pacman -S --noconfirm --needed fish git curl exa
+            sudo pacman -S --noconfirm --needed fish curl exa
             ;;
             2)
             sudo dnf -y install fish curl exa

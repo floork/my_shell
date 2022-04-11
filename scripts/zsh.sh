@@ -11,7 +11,7 @@ system(){
         read -r sys
         case ${sys} in
         1)
-        sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions git curl exa
+        sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions curl exa
         ;;
         2)
         sudo dnf -y install zsh curl exa curl zsh-autosuggestions zsh-syntax-highlighting

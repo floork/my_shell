@@ -28,17 +28,33 @@ prompt(){
             read -r hel
             case ${hel} in
             1)
+            echo "installing Nerd Font"
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
             ;;
             2)
+            echo "installing Nerd Font"
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             bash ${SCRIPT_DIR}/scripts/zsh.sh  |& tee
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
             ;;
             3)
+            echo "installing Nerd Font"
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
             ;;
             0)
+            echo "installing Nerd Font"
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             bash ${SCRIPT_DIR}/scripts/zsh.sh  |& tee 
             bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee 
             bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee 
