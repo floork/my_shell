@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SCRIPT_DIR="$HOME/my_shell"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 logo (){
   echo -ne "
@@ -17,9 +17,6 @@ logo (){
 }
 
 prompt(){
-            git clone https://github.com/ryanoasis/nerd-fonts
-            cd nerd-fonts
-            sudo ./install.sh
             echo -ne "
             Which Shell do you want to customize/install"
             echo -ne "

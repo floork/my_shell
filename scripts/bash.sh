@@ -15,6 +15,9 @@ system(){
             ;;
             2)
             sudo dnf -y install starship exa
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             ;;
             0)
             sudo apt-get update && sudo apt-get upgrade
