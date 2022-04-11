@@ -27,7 +27,7 @@ system(){
         esac
 }
     
-install{
+inst () {
         #install zshrc
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         exit    
@@ -44,4 +44,4 @@ install{
 }
 
 system
-install
+inst
