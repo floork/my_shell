@@ -17,6 +17,9 @@ logo (){
 }
 
 prompt(){
+            git clone https://github.com/ryanoasis/nerd-fonts
+            cd nerd-fonts
+            sudo ./install.sh
             echo -ne "
             Which Shell do you want to customize/install"
             echo -ne "
