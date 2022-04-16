@@ -11,10 +11,10 @@ system(){
         read -r sys
         case ${sys} in
         1)
-        sudo pacman -S --noconfirm --needed zsh zsh-syntax-highlighting zsh-autosuggestions curl exa
+        sudo pacman -S --noconfirm --needed zsh curl exa
         ;;
         2)
-        sudo dnf -y install zsh curl exa curl zsh-autosuggestions zsh-syntax-highlighting
+        sudo dnf -y install zsh curl exa curl
         ;;
         0)
         sudo apt-get update && sudo apt-get upgrade
@@ -32,8 +32,8 @@ inst () {
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         exit    
         #install plugins
-        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         #configs        
         cp ${SCRIPT_DIR}/configs/zshrc ~/.zshrc
         cp ${SCRIPT_DIR}/configs/starship.toml ~/.config/
