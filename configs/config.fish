@@ -78,7 +78,8 @@ pack_man
 # Regular alias
 alias please='sudo'
 alias cls=clear
-alias ende='shutdown now'
+alias ende='sudo shutdown now'
+alias ctl='sudo systemctl'
 
 # vim
 alias rm='rm -i'
