@@ -7,13 +7,16 @@
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
-if command -sq nerdfetch
-	nerdfetch
-else
-	sudo curl -fsSL https://raw.githubusercontent.com/ThatOneCalculator/NerdFetch/master/nerdfetch -o /usr/bin/nerdfetch
-	sudo chmod +x /usr/bin/nerdfetch
-	nerdfetch
+# Add flatpak exports to PATH
+set -l xdg_data_home $XDG_DATA_HOME ~/.local/share
+set -gx --path XDG_DATA_DIRS $xdg_data_home[1]/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+
+for flatpakdir in ~/.local/share/flatpak/exports/bin /var/lib/flatpak/exports/bin
+    if test -d $flatpakdir
+        contains $flatpakdir $PATH; or set -a PATH $flatpakdir
+    end
 end
+
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
@@ -72,56 +75,10 @@ pack_man
 
 ### END OF FUNCTIONS ###
 
-
-### ALIASES ###
-
-# Regular alias
-alias please='sudo'
-alias cls=clear
-alias ende='sudo shutdown now'
-alias ctl='sudo systemctl'
-
-# vim
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias vim='vim'
-alias vi='vim'
-
-# Changing "ls" to "exa"
-alias ls='exa -s name --icons --time-style=long-iso --group-directories-first'      # my preferred listing
-alias ll='exa -ls name --icons --time-style=long-iso --group-directories-first'     # long format
-alias la='exa -as name --icons --time-style=long-iso --group-directories-first'     # all files and dirs
-alias lal='exa -las name --icons --time-style=long-iso --group-directories-first'   # long format all files and dirs
-alias lt='exa -aT --color=always --group-directories-first'                         # tree listing
-
-# help and history
-alias h='history'
-alias help='man'
-
-# Colorize grep output (good for log files)
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-# git
-alias gp=gitpush
-alias gu=gitupdate
-alias gc='git clone'
-
-# get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
-alias lbrynet='/opt/LBRY/resources/static/daemon/lbrynet'
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
-
-# fish alias
-alias fishrc='vim ~/.config/fish/config.fish' # Quick access to the ~/.fishrc file
 alias reload='source ~/.config/fish/config.fish'
 
-# Flatpak alias
-alias flatty='flatpak install flathub'
-alias rflatty='flatpak remove'
+# Include all aliases
+[ -f ~/.alias/aliasrc ] && source ~/.alias/aliasrc
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
