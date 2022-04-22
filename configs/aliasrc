@@ -1,15 +1,4 @@
 
-### FUNCTIONS ###
-
-gitpush() {
-    git --git-dir=$PWD/.git add . # Stage all unstaged files
-	git --git-dir=$PWD/.git commit -a -m $argv # Commit files with the given argument as the commit message
-	git --git-dir=$PWD/.git pull # Pull to remote
-	git --git-dir=$PWD/.git push # Push to remote
-}
-
-### END OF FUNCTIONS ###
-
 # Regular alias
 alias please='sudo'
 alias cls=clear
