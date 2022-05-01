@@ -32,32 +32,32 @@ prompt(){
             git clone https://github.com/ryanoasis/nerd-fonts
             cd nerd-fonts
             sudo ./install.sh
-            bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee
-            bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
+            bash ${SCRIPT_DIR}/scripts/fish.sh  
+            bash ${SCRIPT_DIR}/scripts/bash.sh  
             ;;
             2)
             echo "installing Nerd Font"
             git clone https://github.com/ryanoasis/nerd-fonts
             cd nerd-fonts
             sudo ./install.sh
-            bash ${SCRIPT_DIR}/scripts/zsh.sh  |& tee
-            bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
+            bash ${SCRIPT_DIR}/scripts/zsh.sh  
+            bash ${SCRIPT_DIR}/scripts/bash.sh 
             ;;
             3)
             echo "installing Nerd Font"
             git clone https://github.com/ryanoasis/nerd-fonts
             cd nerd-fonts
             sudo ./install.sh
-            bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee
+            bash ${SCRIPT_DIR}/scripts/bash.sh  
             ;;
             0)
             echo "installing Nerd Font"
             git clone https://github.com/ryanoasis/nerd-fonts
             cd nerd-fonts
             sudo ./install.sh
-            bash ${SCRIPT_DIR}/scripts/zsh.sh  |& tee 
-            bash ${SCRIPT_DIR}/scripts/bash.sh  |& tee 
-            bash ${SCRIPT_DIR}/scripts/fish.sh  |& tee 
+            bash ${SCRIPT_DIR}/scripts/zsh.sh  
+            bash ${SCRIPT_DIR}/scripts/bash.sh 
+            bash ${SCRIPT_DIR}/scripts/fish.sh 
             ;;
             *)
             echo "Please only use the right numbers"
