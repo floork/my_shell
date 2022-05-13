@@ -71,12 +71,24 @@ function pack_man
 		echo 'This Distro is not supported!'
 	end
 end
+
+function fis
+	if not command -sq fisher and not command -sq extract
+		curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+		fisher install oh-my-fish/plugin-extract
+	elseif command -sq fisher and not command -sq extract
+		fisher install oh-my-fish/plugin-extract
+	else
+	end
+end
+
 pack_man
+fis
 
 ### END OF FUNCTIONS ###
 
 alias reload='source ~/.config/fish/config.fish'
-
+alias ex=extract
 # Include all aliases
 [ -f ~/.alias/aliasrc ] && source ~/.alias/aliasrc
 

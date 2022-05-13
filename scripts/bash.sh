@@ -1,40 +1,34 @@
 #!/bin/bash
 
 system(){
-            echo "What Distro do you use"
-            echo -ne "
-            1) Arch
-            2) Fedora
-            0) Debian/Ubuntu
-            Choose an option:  "
-            read -r sys
-            case ${sys} in
-            1)
-            sudo pacman -S --noconfirm --needed starship exa curl
-            ;;
-            2)
-            sudo dnf -y install starship exa curl
-            ;;
-            0)
-            sudo apt-get update && sudo apt-get upgrade
-            sudo apt-get -y --yes install exa
-            ;;
-            *)
-            echo "Please use 1 or 0"
-            system
-            ;;
-            esac
+            if [[ ${sys} == "1" ]]; then
+            ${pass} | sudo pacman -S --noconfirm --needed starship exa curl
+            elif [[ ${sys} == "2" ]]; then
+            sudo -S dnf -y install starship exa curl
+            elif [[ ${sys} == "0" ]]; then
+            ${pass} | sudo apt-get update && sudo apt-get upgrade
+            ${pass} | sudo apt-get -y --yes install exa
+            else
+                echo "Please use 1 or 0"
+                system
+            fi            
 }
 
 install(){
-            cp ${SCRIPT_DIR}/configs/bashrc ~/.bashrc
-            cp ${SCRIPT_DIR}/configs/starship.toml ~/.config
+        
+        # configs
+        cp ${SCRIPT_DIR}/configs/bashrc ~/.bashrc
+        cp ${SCRIPT_DIR}/configs/starship.toml ~/.config
 
-            mkdir ~/.alias
-            cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias
+        if [ -d "~/.alias/" ]; then
+                cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias/
+        else
+                mkdir ~/.alias
+                cp ${SCRIPT_DIR}/configs/aliasrc ~/.alias/
+        fi
 
-            chsh -s /usr/bin/fish
-            chsh -s /usr/bin/fish $USER
+        #change shell
+        sudo -S chsh -s /bin/bash
 }
 
 system

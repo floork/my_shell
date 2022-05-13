@@ -16,6 +16,20 @@ logo (){
 "
 }
 
+systems(){
+          if [ -x "$(command -v pacman)" ];then
+          sys=1
+          elif [ -x "$(command -v dnf)" ];then
+          sys=2     
+          elif [ -x "$(command -v apk)" ];then
+          sys=0
+          elif [ -x "$(command -v apt-get)" ];then
+          sys=0
+          else
+            echo 'This Distro is not supported!'
+          fi
+}
+
 prompt(){
             echo -ne "
             Which Shell do you want to customize/install"
@@ -26,6 +40,7 @@ prompt(){
             0) All
             Choose an option:  " 
             read -r hel
+            #read -sp "Password: " pass
             case ${hel} in
             1)
             echo "installing Nerd Font"
@@ -51,10 +66,10 @@ prompt(){
             bash ${SCRIPT_DIR}/scripts/bash.sh  
             ;;
             0)
-            echo "installing Nerd Font"
-            git clone https://github.com/ryanoasis/nerd-fonts
-            cd nerd-fonts
-            sudo ./install.sh
+            #echo "installing Nerd Font"
+            #git clone https://github.com/ryanoasis/nerd-fonts
+            #cd nerd-fonts
+            #sudo ./install.sh
             bash ${SCRIPT_DIR}/scripts/zsh.sh  
             bash ${SCRIPT_DIR}/scripts/bash.sh 
             bash ${SCRIPT_DIR}/scripts/fish.sh 
@@ -80,9 +95,16 @@ logo2 (){
 "
 }
 
-export SCRIPT_DIR 
+test(){
+  echo ${sys}
+  exit
+}
+
+export SCRIPT_DIR sys pass
 
 clear
 logo
+systems
+#test
 prompt
 logo2

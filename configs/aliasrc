@@ -3,12 +3,12 @@
 alias please='sudo'
 alias cls=clear
 alias ende='sudo shutdown now'
-alias sctl='sudo systemctl'
+alias ctl='sudo sytemctl'
 
 # vim
 alias rm='rm -r'
 alias cp='cp -R'
-alias mv='mv '
+alias mv='mv -R'
 alias vim='vim'
 alias vi='vim'
 
@@ -42,7 +42,6 @@ alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias bashrc='vim ~/.bashrc' # Quick access to the ~/.bashrc file
 alias fishrc='vim ~/.config/fish/config.fish' # Quick access to the ~/.fishrc file
 alias aliasrc='vim ~/.alias/aliasrc' # Quick access to this file
-alias starshiprc='vim ~/.config/starship.toml' # Quick access to the Starship config
 
 # Flatpak alias
 alias flatty='flatpak install flathub'
