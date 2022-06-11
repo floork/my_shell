@@ -1,9 +1,13 @@
 
 # Regular alias
 alias please='sudo'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
+alias shutdown='sudo shutdown now'
+alias suspend='systemctl suspend'
 alias cls=clear
-alias ende='sudo shutdown now'
-alias ctl='sudo sytemctl'
+alias ende='suspend && exit'
+alias sctl='sudo sytemctl '
 
 # vim
 alias rm='rm -r'

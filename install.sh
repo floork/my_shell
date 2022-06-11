@@ -81,6 +81,11 @@ prompt(){
             esac
         }
 
+sudoers(){
+    echo "# Shutdown Reboot etc without sudo passwd" | sudo tee -a /etc/sudoers
+    echo "%users  ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /usr/sbin/pm-suspend-hybrid" | sudo tee -a /etc/sudoers
+}
+
 logo2 (){
   echo -ne "
 ███╗   ███╗██╗   ██╗    ███████╗██╗  ██╗███████╗██╗     ██╗     
@@ -105,6 +110,7 @@ export SCRIPT_DIR sys pass
 clear
 logo
 systems
+sudoers
 #test
 prompt
 logo2
